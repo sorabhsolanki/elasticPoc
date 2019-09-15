@@ -26,7 +26,8 @@ public class MovieHandler {
 
     @PostConstruct
     public void init(){
-        searchMovieForId("1924");
+       // searchMovieForId("1924");
+        insertMoviesDataIntoEs();
     }
 
     public void searchMovieForId(final String movieId){
@@ -36,5 +37,9 @@ public class MovieHandler {
         for(Movie movieObj : movies){
             LOG.info("Movie {} ", movieObj);
         }
+    }
+
+    public void insertMoviesDataIntoEs(){
+        movieService.insertIntoES("movies", "movie");
     }
 }
